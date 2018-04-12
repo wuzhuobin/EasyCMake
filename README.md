@@ -1,0 +1,2 @@
+# EasyCMake
+EasyCMake template!!!
