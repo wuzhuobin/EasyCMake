@@ -1,0 +1,21 @@
+include("${CMAKE_CURRENT_LIST_DIR}/lib/cmake/abstractdata-config.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/lib/cmake/abstractfilter-config.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/lib/cmake/abstractinteractorobserver-config.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/lib/cmake/abstractmainwindow-config.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/lib/cmake/abstractpipeline-config.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/lib/cmake/abstractviewer-config.cmake")
+get_filename_component(
+    FOLDER_NAME 
+	${CMAKE_CURRENT_SOURCE_DIR} 
+	NAME
+    )
+set(${FOLDER_NAME}_FOUND TRUE)
+set(
+    ${FOLDER_NAME}_LIBRARY
+    abstractdata
+    abstractfilter
+    abstractinteractorobserver
+    abstractmainwindow
+    abstractpipeline
+    abstractviewer
+)

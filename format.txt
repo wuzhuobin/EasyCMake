@@ -1,0 +1,719 @@
+/**
+ * @file    format.txt
+ * @brief   Format document for Software Developer in Something. 
+ * @language    C++
+ * @author  WUZHUOBIN
+ * @version 1.0.0
+ * @since   Aug.26.2017
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *			This program is distributed in the hope that it will be useful, but	 *
+ *			WITHOUT ANY WARRANTY; without even the implied warranty of			 * 
+ *			MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.				 * 
+ *			See the LICENSE for more detail.									 * 
+ *			Copyright (c) WUZHUOBIN. All rights reserved.						 * 
+ *			See COPYRIGHT for more detail.										 * 
+ *			This software is distributed WITHOUT ANY WARRANTY; without even		 * 
+ *			the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR	 * 
+ *			PURPOSE.  See the above copyright notice for more information.		 *
+ *			Internal usage only, without the permission of the author, please DO *
+ *			NOT publish and distribute without the author's permission.  	     *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * 
+ * Something Software Development format file. The following file describes how to write a 
+ * standard Something Software. 
+ * 
+ * Update Log:
+ * @date    Aug.26.2017
+ * @version 0.1.0
+ * The first version. 
+ * 
+ * @date    Sep.19.2017
+ * @version 1.0.0
+ * The 0.1.0 version just a beginning of the whole format.txt file.  And this version should
+ * be apply to all developers. This version lack of ITK coding style. 
+ * 
+ * @date    Sep.19.2017
+ * @version 1.1.0
+ * Some syntax error.
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+ * 1.   GLODEN STANDARD: Qt class follow Qt coding style convention. VTK class follow VTK  *
+ *      class convention. Qt class try to use Qt style container and algorithm. ITK class  *
+ *      follow ITK style convention.                                                       *
+ *      e.g.    QList<T> QMap<T1, T2>.                                                     * 
+ *      VTK class try to use VTK style container and algorithm, otherwise using STD style  *
+ *      container and algorithm.                                                           *
+ *      e.g.    vtkCollection<T>, std::list<T>.                                            *
+ *      ITK class try to use ITK style container and algorithm, otherwise using STD style  *
+ *      e.g.    typedef itk::image<float, 3> TInputImage;                                  *
+ *              typedef itk::ImageRegionIterator<TInputImage> ImageRegionIteractor         *
+ * 2.   Only one public class per header file. Internal helper classes may be forward      *
+ *      declared in header files, but can then only be defined in implementation files,    *
+ *      ie using the PIMPL idiom.                                                          *
+ *      Rationale: helpful when searching the code and limits header inclusion bloat that  *
+ *      slows compilation time.                                                            *
+ * 3.   Only alphanumeric characters in names. Use capitalization to demarcate words       *
+ *      within a name (i.e., camel case). Acronyms should be written with the same case    *
+ *      for each letter (all uppercase or lower case).                                     *
+ *      e.g.    vtkObject OR VTKObject, NOT VtkObject OR vTKObject.                        *
+ * 4.   Class names and file names must match, class names must be unique. Both should     *
+ *      camel case convention.                                                             *
+ * 5.   Declare each variable on a separate line. Avoid short or meaningless names("a",    * 
+ *      "rbarr", "nughedget" ). Single character variable names are only okay for counters *
+ *      and temporaries. Wait when declaring a variable until it is needed.                *
+ *      Qt's variables and functions start with a lowercase letter. VTK variables and      *
+ *      functions should start with a uppercase letter. (For using vtkSetGet.h) ITK        *
+ *      variables should start with "m_" then uppercase letter. (For using itkSetGet.h)    *
+ *      Try to use "virtual, override, const" etc. Keywords to maintain the software's     *
+ *      robust.                                                                            *
+ *      e.g.                                                                               * 
+ *      // qt                                                                              *
+ *      public:                                                                            *
+ *          virtual void setWindowWidth(int width);                                        *
+ *          virtual int getWindowWidth() const;                                            *
+ *      protected:                                                                         *
+ *          int width; Or int m_width // "m" for membership variable.                      *
+ *      // vtk                                                                             *
+ *      public:                                                                            *
+ *          vtkGetMacro(Width, int);                                                       *
+ *          vtkSetMacro(Width, int);                                                       *
+ *      protected:                                                                         *
+ *          int Width;                                                                     *
+ *      // itk                                                                             *
+ *      public:                                                                            *
+ *          itkGetMacro(Width, int);                                                       *
+ *          itkSetMacro(Width, int);                                                       *                               
+ *      protected:                                                                         *
+ *          int m_Width;                                                                   *
+ *      Rationale: helpful when searching the code, includes are flattened at install.     *
+ * 6.   Conditional clauses (including loop conditionals such as for-loop and while-loop)  *
+ *      must be in braces below the conditional.                                           *
+ *      e.g.    if(test){               if(test)                                           *
+ *                  do somethings;  OR  {                                                  *
+ *              }                           do somethings;                                 *
+ *                                      }                                                  *
+ *      NOT     if(test) do somethings; OR if(test) {do somethings;}                       *
+ *      Rationale: helpfule when running code through a debugger.                          *
+ * 7.   Preprocessor variables are the exception, and should be in all caps with a single  *
+ *      underscore to demarcate words. C++ Macro should be written in all uppercase and    *
+ *      seperated with underscore. And constant values should follow this convention as    *
+ *      well. Enumeration type should be seen as constant value.                           *
+ *      Rationale: Readability                                                             *
+ *      e.g.    SETUP_SCB_OBJECT NOT SetupSCBObject OR Setup-SCB_Object.                   * 
+ *              static const int SCB_OBJECT_ID = 1; NOT                                    *
+ *              static const int SCBObject_Id = 1;                                         *
+ *              Enum FRUIT{                                                                *
+ *                  APPLE = 0,                                                             *
+ *                  PEAR = 1                                                               *
+ *              };                                                                         *
+ * 8.   Words should be spelled out and NOT abreviated, NOT for short. Try to always spell *
+ *      out a name and not use abbreviations except in cases where the shortened form is   *
+ *      obvious and widely understood.                                                     *
+ *      e.g.    RealTimeThread NOT RTTD.   getRenderWindow() NOT getRenWin().              *
+ * 9.   Header files should normally have just two includes, one for the superclass's      *
+ *      header file(except for multiple inheritants) and one for the class's module export *
+ *      header declaration.(which is automatically generated by cmake for Windows's dll).  *
+ *      It is required that all but the superclass header have a comment explaining why    *
+ *      the extra includes are necessary. Care should be taken to minimize the number of   *
+ *      includes in public headers, with predeclaration/PIMPL preferred. Forward is        *
+ *      perfered.                                                                          *
+ *      Rationale: limits header inclusion bloat that slows compilation time.              *
+ * 10.  Group includes per library. Order groups from local to global. implementation file *
+ *      should include the header files first. External library header should use angle    *
+ *      bracket, while local header should use double quotation marks.                     *
+ *      e.g.                                                                               *
+ *      // me                                                                              *
+ *      #include "SCBAbstractData.h"                                                       *
+ *      #include "SCBScene.h"                                                              *
+ *                                                                                         * 
+ *      // vtk                                                                             *
+ *      #include <vtkObject.h>                                                             *
+ *      #include <vtkPolyData.h>                                                           *
+ *                                                                                         *
+ *      // qt                                                                              *
+ *      #include <QList>                                                                   *
+ *                                                                                         *
+ *      // std                                                                             *
+ *      #include <vector>                                                                  *
+ *                                                                                         * 
+ * 11.  There are around 2-4 log levels are used. Error: detected errors, conditions that  *
+ *      should never occur. Warning: potential errors, possible computation inaccuracies.  *
+ *      Info: important events, application state changes (helps to determine what the     *
+ *      steps lead to a certain error or warning); one user action should not generate     *
+ *      more than 1-2 info level messages. Debug: any information that may be useful for   *
+ *      debugging and troubleshooting.                                                     *
+ *      In VTK classes:                                                                    *
+ *      vtkErrorMacro("vtkMRMLClipModelsNode:: Invalid Clip Type");                        *
+ *      if (somethingWrongHappened)                                                        *
+ *      {                                                                                  *
+ *          vtkErrorMacro("I encountered an error");                                       *
+ *          return;                                                                        *
+ *      }                                                                                  *
+ *      vtkWarningMacro("Model " << modelNode->GetName() << "'s display node is null\n");  *
+ *      vtkWarningMacro("Be careful here, this is dangerous");                             *
+ *      vtkDebugMacro("CreateWidget: found a glyph type already defined for this node: "   *
+ *      << iter->second);                                                                  *
+ *      vtkDebugMacro("This variable has the value: "<< value);                            *
+ *      In QT classes:                                                                     *
+ *      qCritical() << "qSlicerUtils::setPermissionsRecursively: Failed to set permissions *
+ *      on file" << info.filePath();                                                       *
+ *      if (somethingWrongHappened)                                                        *
+ *      {                                                                                  *
+ *          qCritical() << "I encountered an error";                                       *
+ *          return;                                                                        *
+ *       }                                                                                 *
+ *      qWarning() << "qSlicerIOManager::openScreenshotDialog: Unable to get Annotations   *
+ *      qWarning() << "Be careful here, this is dangerous";                                *
+ *      module (annotations), using the CTK screen shot dialog.";                          *
+ *      qDebug() << "qMRMLSceneFactoryWidget::deleteNode(" <<className <<") no node";      *
+ *      qDebug() << "This variable has the value: "<< value;                               *
+ * 12.  Ideally, no more than 80 characters per line. Keep line length under 120           *
+ *      characters.                                                                        *
+ * 13.  All the comment styles should follow doxygen syntax.                               *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *   
+ * @see http://wiki.qt.io/Qt_Coding_Style                                                  *                                   
+ * @see https://wiki.qt.io/Coding_Conventions                                              *
+ * @see http://www.stack.nl/~dimitri/doxygen/manual/index.html                             *
+ * @see https://www.vtk.org/Wiki/VTK_Coding_Standards                                      *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+ */
+ /**
+ * @file	Project\code\system\core\SCBAbstractData.h.
+ * @brief	Declares the Something abstract data class.
+ * @language	C++
+ * @author	wuzhuobin jiejin2022@163.com
+ * @date	2017/6/19
+ * SCB for Something
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+ *			This program is distributed in the hope that it will be useful, but	 *
+ *			WITHOUT ANY WARRANTY; without even the implied warranty of			 * 
+ *			MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.				 * 
+ *			See the LICENSE for more detail.									 * 
+ *			Copyright (c) WUZHUOBIN. All rights reserved.						 * 
+ *			See COPYRIGHT for more detail.										 * 
+ *			This software is distributed WITHOUT ANY WARRANTY; without even		 * 
+ *			the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR	 * 
+ *			PURPOSE.  See the above copyright notice for more information.		 *
+ *			Internal usage only, without the permission of the author, please DO *
+ *			NOT publish and distribute without the author's permission.  	     *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ */
+
+#ifndef __SCB_ABSTRACT_DATA_H__
+#define __SCB_ABSTRACT_DATA_H__
+
+// me
+#include "abstractdata_export.h"
+class SCBScene;
+class SlotMapper;
+
+// qt
+#include <QObject>
+#include <QVariant>
+#include <QVariantList>
+#include <QList>
+class QDomElement;
+class QStandardItemModel;
+class QStandardItem;
+
+/**
+ * @class	SCBAbstractData
+ * @brief	Something AbstractData
+ * @author	WUZHUOBIN
+ * @date	2017/6/19
+ * 
+ * Something AbstractData to Saving data in SCBScene
+ * Attributes of SCBAbstractData is in tree-like structue. 
+ * @see SCBScene
+ * 
+ * Invisible attribute: 
+ *		UniqueName = "";
+ *		Selectable = true;
+ *		Selected = true;
+ *
+ * Visible attribute in #m_attributesModel (Tree Structure):
+ *		ModelAttributes
+ *		-Description = "";
+ * 
+ */
+
+class ABSTRACTDATA_EXPORT SCBAbstractData: public QObject
+{
+	Q_OBJECT;
+public:
+	static const int MAX_COLUMNS = 4; ///< Maximum column of the models
+	/**
+	 * Declaring static const attributes' keys
+	 */
+	static const QString UNIQUENAME; ///< "UniqueName"
+	static const QString SELECTABLE; ///< "Selectable"
+	static const QString SELECTED; ///< "Selected"
+	static const QString MODEL_ATTRIBUTES; ///< "ModelAttributes"
+	static const QString DESCRIPTION; ///< "Description"
+	/**
+	 * @typedef	void(*slotFunction)(SCBAbstractData*, QStandardItem*);
+	 * @brief	typdef for a slot function. 
+	 * 
+	 * This function can be inserted to the slotMappper, with defining #slotFunction and using 
+	 * #insertSlotFunction to insert to #slotMapper, the #slotFunction will be invoke when
+	 * attributes are changed. 
+	 */
+	typedef void(*slotFunction)(SCBAbstractData*, QStandardItem*);
+
+	/**
+	 * @fn	static SCBAbstractData::SCBAbstractData();
+	 * @brief	static method return class name.
+	 * @static
+	 * @return	class name
+	 *
+	 * Providing convenient method the same as QOBject#staticMetaObject()#className().
+	 */
+	static QString getClassNameS() { return staticMetaObject.className(); }
+
+	/**
+	 * @fn	SCBAbstractData::SCBAbstractData();
+	 * @brief	Constructor.
+	 *
+	 */
+
+	SCBAbstractData();
+
+	/**
+	 * @fn	virtual SCBAbstractData::~SCBAbstractData() override;
+	 * @brief	Destructor.
+	 * 
+	 */
+	virtual ~SCBAbstractData() override;
+
+	/**
+	 * @fn	virtual void printSelf() const;
+	 * @brief	Using qDebug() to print self
+	 * @const
+	 * 
+	 */
+	virtual void printSelf() const;
+
+	/**
+	 * @fn	virtual bool SCBAbstractData::isClass(QString className) const;
+	 * @brief	Query if 'className' is this class. 
+	 * @const
+	 * @param[in]	className	Name of the class.
+	 * @return	True if class, false if not.
+	 * 
+	 * Providing convenient method which is the same as QObject#inherits().
+	 */
+
+	virtual bool isClass(QString className) const { return inherits(className.toStdString().c_str()); }
+
+	/**
+	 * @fn	QString SCBAbstractData::getClassName() const;
+	 * @brief	Gets class name.
+	 * @const
+	 * @return	The class name.
+	 * 
+	 * Providing convenient method which is the same as QObject#metaObject()#className(). 
+	 */
+	QString getClassName() const { return this->metaObject()->className(); }
+
+	/**
+	 * @fn	virtual void readXML(const QDomElement& xml, QString directoryPath = QString());
+	 * @brief	Reads an XML.
+	 * @param[in]	xml	QDomElement to load current this data.
+	 * @param[in]	directoryPath directoryPath for loading the vtkDataSet or data file
+	 */
+
+	virtual void readXML(const QDomElement& xml, QString directoryPath = QString());
+
+	/**
+	 * @fn	virtual void SCBOAbstractData::writeXML(QStringList xml) = 0;
+	 * @brief	Writes an XML.
+	 * @const
+	 * @param[in,out]	xml	QDomElement to write current this data.
+	 * @param[in]	directoryPath directoryPath for write the vtkDataSet or data file.
+	 */
+
+	virtual void writeXML(QDomElement& xml, QString directoryPath = QString()) const;
+
+	/**
+	 * @fn	virtual QString SCBOAbstractData::getTag() const = 0;
+	 * @brief	Gets the tag.
+	 * @const
+	 * @return	The tag.
+	 */
+	virtual QString getTag() const = 0;
+
+	/**
+	 * @fn	virtual void SCBOAbstractData::copy(SCBOAbstractData* data);
+	 * @brief	Copies the given data.
+	 * @deprecated
+	 * @todo	To think about how to complete this method. 
+	 * @param[in]	data If non-null, the data.
+	 */
+	virtual void copy(const SCBAbstractData* data) {}
+	/**
+	 * @fn	virtual QString SCBAbstractData::getUniqueName();
+	 * @brief	return unique name of this data
+	 * @const
+	 * @return	#m_uniqueName.
+	 */
+	virtual QString getUniqueName() const { return this->m_uniqueName; }
+
+	virtual QString getAlias() const { return this->objectName(); }
+
+	/**
+	 * @fn	virtual bool SCBAbstractData::getAddedToScene() const;
+	 * @brief	check whether the data has added to scene.
+	 * @const
+	 * @return	#m_addedToScene.
+	 * 
+	 */
+	virtual bool getAddedToScene() const { return this->m_addedToScene; }
+
+	/** 
+	 * @fn	virtual QStandardItemModel* getModel() const;
+	 * @brief	get Model of this data, model is for all visible attributes.
+	 * @const
+	 * @return	#m_attributesModel the model containing all visible attributes.
+	 * 
+	 * QT's model/view/delegate design, to seperate the model for view.
+	 */
+	virtual QStandardItemModel* getModel() const;
+
+	/**
+	 * @fn	virtual bool getSelectable() const;
+	 * @brief	get selectable.
+	 * @const
+	 * @return	#m_selectable
+	 * 
+	 * If the data is selectable, the data should be visible or selectable in the scene' view. 
+	 * @see	SCBScene
+	 */
+	virtual bool getSelectable() const { return this->m_selectable; }
+	/**
+	 * @fn	virtual bool getSelected() const. 
+	 * @brief	get selected. 
+	 * @const
+	 * @return	#m_selected 
+	 *
+	 * if true, the data is selected in the SCBScene. 
+	 */
+	virtual bool getSelected() const { return this->m_selected; }
+
+	/**
+	 * @fn	virtual QString getDescription() const;
+	 * @brief	Get description. 
+	 * @const
+	 * @return	data of #m_descriptoin. 
+	 *
+	 * Get description of the data. 
+	 */
+	virtual QString getDescription() const;
+
+
+public slots:
+	/**
+	 * @fn	virtual void setAlias(QString alias);
+	 * @brief	Set alias
+	 * @param[in]	set QObject#setObjectName. 
+	 * 
+	 * Convenient methods to set SCBAbstract 's alias, using 
+	 * internal QObject#objectName() property as alias. 
+	 * By setting SCBScene as object's parent to easily search. 
+	 */
+	virtual void setAlias(QString alias) { this->setObjectName(alias); }
+	/**
+	 * @fn	virtual void SCBOAbstractData::reset();
+	 * @brief	Resets all attributes to default state.
+	 */
+	virtual void reset();
+	/**
+	 * @fn	virtual void setSelectable(bool selectable);
+	 * @brief	Set selectable.
+	 * @const
+	 * @param[in]	selectable set #m_selectable.
+	 *
+	 * If the data is selectable, the data should be visible or selectable in the scene' view.
+	 * @see	SCBScene
+	 */
+	virtual void setSelectable(bool selectable) { this->m_selectable = selectable; }
+	/**
+	 * @fn	void selectableOn();
+	 */
+	void selectableOn() { setSelectable(true); }
+	/**
+	 * @fn	void selectableOff();
+	 */
+	void selectableOff() { setSelectable(false); }
+	/**
+	 * @fn	virtual void setSelected(bool selected);
+	 * @brief	set selected. 
+	 * @param[in]	selected set #m_selected. 
+	 * 
+	 * when the data is selected, set selected. 
+	 */
+	virtual void setSelected(bool selected) { this->m_selected = selected; }
+	/**
+	 * @fn	void selectedOn();
+	 */
+	void selectedOn() { setSelected(true); }
+	/**
+	 * @fn	void selectedOff(); 
+	 */
+	void selectedOff() { setSelected(false); }
+	/**
+	 * @fn virtual void setDescription(QString description);
+	 * @brief	Set Description.
+	 * @param[in]	descriptoin set #m_description 's data. 
+	 * 
+	 * Set description of the data. 
+	 */
+	virtual void setDescription(QString description);
+
+signals:
+	/**
+	 * @fn 	void descriptionChanged(QString description);
+	 * @brief	emit by #setDescription();
+	 * @param[out]	description
+	 */
+	void descriptionChanged(QString description);
+
+protected:
+
+	/**
+	 * @class	SCBScene
+	 * @see SCBScene
+	 * 
+	 * Set SCBScene as a friend class, SCBScene is the only class can modify
+	 * #m_uniqueName and #m_addedToScene.
+	 */
+	friend class SCBScene;
+
+
+	/**
+	 * @fn	virtual SCBAbstractData* SCBAbstractData::newInstance() = 0;
+	 * @brief	Creates a new instance.
+	 * @return	Null if it fails, else a pointer to a SCBOAbstractData.
+	 */
+	virtual SCBAbstractData* newInstance() const = 0;
+
+	/**
+	 * @fn	void insertSlotFunction(QStandardItem* item, slotFunction f);
+	 * @brief	insert item(key) and slotFunction(value) to the slotMapper. 
+	 * @param[in]	item QStandardItem key to find the slotFunction. 
+	 * @param[in]	f value, slotFunction to be invoked when item is modified. 
+	 * 
+	 * Insert item for key and slotFunction to be invoked. The item is the visible key in the model.
+	 * f is the slotFunction to be invoked when item is modified. Developer should insert items and its 
+	 * specified slotFunction. 
+	 */
+	void insertSlotFunction(QStandardItem* item, slotFunction f);
+	/**
+	 * @fn	static QString translateAttributeKey(QString key);
+	 * @brief	
+	 * @deprecated
+	 * @static
+	 */
+	static QString translateAttributeKey(QString key);
+
+	/**
+	 * @fn	template<typename ValueType>
+	 *		static void readArray(QString key, const QDomElement& xml, ValueType* values, int size);
+	 * @brief	Template function for read a plain array. 
+	 * @static
+	 * @tparam		ValueType the type of the plain array. Only the following types are now supported:
+	 *				char, int, long, float, double
+	 * @param[in]	key the key of the array.
+	 * @param[in]	xml QDomElement to read the array's values. 
+	 * @param[out]	values read from QDomElement and write to values. 
+	 * @param[in]	size size of the plain array, the plain does not provide size information. 
+	 * 
+	 * Template function to read a plain array, the key of every value is key + '_'. 
+	 * This template function now only support the following types: 
+	 */
+	template<typename ValueType>
+	static void readArray(QString key, const QDomElement& xml, ValueType* values, int size);
+	
+	/**
+	 * @fn	template<typename ValueType>
+	 *		static void readArray(QString key, const QString* prefix, const QDomElement& xml, ValueType* values, int size);
+	 * @brief	Template function for read a plain array. 
+	 * @static
+	 * @tparam		ValueType the type of the plain array. Only the following types are now supported:
+	 *				char, int, long, float, double
+	 * @param[in]	key the key of the array.
+	 * @param[in]	prefix the prefix key of every element of the array. 
+	 * @param[in]	xml QDomElement to read the array's values. 
+	 * @tparam[out]	values read from QDomElement and write to values. 
+	 * @param[in]	size size of the plain array, the plain does not provide size information. 
+	 * 
+	 * Template function to read a plain array, the key of every element is prefix. Their length should be same. 
+	 * This template function now only support the following types: 
+	 * char, int, long, float, double
+	 */
+	template<typename ValueType>
+	static void readArray(QString key, const QString* prefix, const QDomElement& xml, ValueType* values, int size);
+	/**
+	 * @fn	template<typename ValueType>
+	 *		static void writeArray(QString key, QDomElement& xml, const ValueType* values, int size);
+	 * @brief	Template function for write a plain array.
+	 * @tparam		ValueType the type of the plain array. Only the following types are now supported:
+	 *				char, int, long, float, double
+	 * @param[in]	key the key of the array.
+	 * @param[out]	xml QDomElement to write the array's values.
+	 * @tparam[in]	values read from values and write to QDomElement.
+	 * @param[in]	size size of the plain array, the plain does not provide size information.
+	 * 
+	 * Template function to write a plain array, the key of every value is key + '_'. 
+	 * This template function now only support the following types:
+	 * char, int, long, float, double
+	 */
+	template<typename ValueType>
+	static void writeArray(QString key, QDomElement& xml, const ValueType* values, int size);
+	/**
+	 * @fn	template<typename ValueType>
+	 *		static void writeArray(QString key, QDomElement& xml, const ValueType* values, int size);
+	 * @brief	Template function for write a plain array. 
+	 * @tparam		ValueType the type of the plain array. Only the following types are now supported:
+	 *				char, int, long, float, double
+	 * @param[in]	key the key of the array.
+	 * @param[in]	prefix the prefix key of every element of the array.
+	 * @param[out]	xml QDomElement to write the array's values.
+	 * @tparam[in]	values read from values and write to QDomElement.
+	 * @param[in]	size size of the plain array, the plain does not provide size information.
+	 * 
+	 * Template function to write a plain array, the key of every element is prefix. Their length should be same. 
+	 * This template function now only support the following types:
+	 * char, int, long, float, double
+	 */
+	template<typename ValueType>
+	static void writeArray(QString key, const QString* prefix, QDomElement& xml, const ValueType* values, int size);
+	/**
+	 * @fn	virtual QStandardItem* createAttribute(QString key, QVariant value = QVariant(),
+	 *		bool editable = false, QStandardItem* parent = nullptr);
+	 * @brief	Create an attribute in QStandardModel. 
+	 * @param[in]	key key of the attribute to be created. 
+	 * @param[in]	value value of the attribute, default is QVariant, no value, which only a key will be display in
+	 *				the view. QVariant can save the plain C++ type. Please make sure value's type using or 
+	 *				using static_cast() to cast it correctly. 
+	 * @param[in]	editable whether the attribute is editable. Default is false. 
+	 * @param[in]	parent	The parent of this attirbute. Default is nullptr, which is the top level attribute. 
+	 *				The parent should be an attribute without value. 
+	 * 
+	 * Create attribute of this data in #m_attributesModel. 
+	 */
+	virtual QStandardItem* createAttribute(QString key, QVariant value = QVariant(),
+		bool editable = false, QStandardItem* parent = nullptr);
+	/**
+	 * @fn	virtual QList<QStandardItem*> createAttributesByRows(QStringList keys,
+	 *		QVariantList values, bool editable = false, QStandardItem* parent = nullptr);
+	 * @brief	Create multiple attributes, an attribute per row. 
+	 * @param[in]	keys keys for attributes .
+	 * @param[in]	values	values for attributes. 
+	 * @param[in]	editable Whether attributes are editable. Default is false. 
+	 * @param[in]	parent The parent of these attributes. Default is nullptr, which is the top level attribute. 
+	 *				The parent should be an attribute without value.
+	 *
+	 * Create attributes of this data in #m_attributesModel.
+	 * The length of keys and values must be same.
+	 */
+	virtual QList<QStandardItem*> createAttributesByRows(QStringList keys,
+		QVariantList values, bool editable = false, QStandardItem* parent = nullptr);
+	/**
+	 * @fn	virtual QList<QStandardItem*> createAttributesByColumns(QStringList keys,
+	 *		QVariantList values, bool editable = false, QStandardItem* parent = nullptr);
+	 * @brief	Create multiple attributes, an attribute per Columns.
+	 * @param[in]	keys keys for attributes .
+	 * @param[in]	values	values for attributes.
+	 * @param[in]	editable Whether attributes are editable. Default is false.
+	 * @param[in]	parent The parent of these attributes. Default is nullptr, which is the top level attribute.
+	 *				The parent should be an attribute without value.
+	 *
+	 * Create attributes of this data in #m_attributesModel. The Columns is limited by #MAX_COLUMNS. 
+	 * If the length of attributes are bigger than #MAX_COLUMNS, the arrtibutes will become invisible.
+	 * The length of keys and values must be same.
+	 */
+	virtual QList<QStandardItem*> createAttributesByColumns(QStringList keys,
+		QVariantList values, bool editable = false, QStandardItem* parent = nullptr);
+	/**
+	 * @fn	static void setAttribute(QStandardItem* item, const QVariant value);
+	 * @brief	static function to set item's value. 
+	 * @static
+	 * @param[in]	item the item whose value to be set.
+	 * @param[in]	value the value to be set. 
+	 */
+	static void setAttribute(QStandardItem* item, const QVariant value);
+	/**
+	 * @fn	static QVariant getAttribute(const QStandardItem* item);
+	 * @brief	static function to get item's value. 
+	 * @static
+	 * @param[in]	item to be get.
+	 * @return	the value of the item. 
+	 */
+	static QVariant getAttribute(const QStandardItem* item);
+	/**
+	 * @fn static void setAttributes(QList<QStandardItem*> items, const QVariantList values);
+	 * @brief	 static function to set multiple items ' values. 
+	 * @static 
+	 * @param[in]	items to be set. 
+	 * @param[in]	values to be set.
+	 * function to set multiple attributes. The length of items and values must be same. 
+	 */
+	static void setAttributes(QList<QStandardItem*> items, const QVariantList values);
+	/**
+	 * @fn	static QVariantList getAttributes(const QList<QStandardItem*> items);
+	 * @brief	get multiple values of items. 
+	 * @static
+	 * @param[in]	items to be set. 
+	 * @return	values of items. 
+	 * function to get multiple attributes. The length of values and itmes are the same. 
+	 */
+	static QVariantList getAttributes(const QList<QStandardItem*> items);
+	/**
+	 * @fn	static void setDescription(SCBAbstractData* self, QStandardItem* item);
+	 * @brief	slotFunction for #m_description callback. 
+	 * @static 
+	 * @param[in]	self to transmit this pointer. 
+	 * @param[in]	item to transmit caller item. 
+	 */
+	static void setDescription(SCBAbstractData* self, QStandardItem* item);
+
+private:
+	/**
+	 * @fn	static void readAttributes(const QDomElement& xml, QStandardItem* item);
+	 * @brief	read attributes in #m_attributeModel recursively. 
+	 * @static
+	 * @param[in]	xml QDomElement to read attributes. 
+	 * @param[out]	item write value to item from xml. 
+	 */
+	static void readAttributes(const QDomElement& xml, QStandardItem* item);
+	/**
+	 * @fn	static void writeAttributes(QDomElement& xml, const QStandardItem* item);
+	 * @brief	write attributes in #m_attributeModel recursively. 
+	 * @static 
+	 * @param[out]	xml QDomElement to write attributes. 
+	 * @param[in]	item write value form item to xml. 
+	 */
+	static void writeAttributes(QDomElement& xml, const QStandardItem* item);
+
+	QString m_uniqueName;   ///< Unique name of the data
+	//QString m_alias;	///< non-unique alias for retriving data
+	bool m_addedToScene;	///< whether the data is added to the current SCBScene. 
+	bool m_selectable;  ///< whether the data is visible and selectable in the SCBScene.
+	bool m_selected;	///< whether the data is selected in the SCBScene. 
+	QStandardItem* m_description; ///< Description of the data. 
+	
+	QStandardItemModel* m_attributesModel; ///< model containing visible attributes. 
+	SlotMapper* m_slotMapper; ///< A mapper mapping from item to slotFunction. 
+
+private slots :
+	/**
+	 * @fn	void slotMapping(QStandardItem* item);
+	 * @brief	slot function to connect #m_attributesModel#itemChanged().
+	 */
+	void slotMapping(QStandardItem* item);
+};
+
+
+#endif // !__SCB_ABSTRACT_DATA_H__
+
