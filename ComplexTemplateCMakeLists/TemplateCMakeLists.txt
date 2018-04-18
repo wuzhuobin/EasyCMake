@@ -1,9 +1,9 @@
 # @file	TemplateCMakeLists.txt
 # @brief	A template CMakeLists.txt which can automatically generate project
 # @author	WUZHUOBIN
-# @version	1.6.0
-# @date		Dec.08.2017
-# @since	Sep.19.2017
+# @version	1.7.0
+# @since	Dec.08.2017
+# @date 	Apr.18.2018
 # 
 # This template is for generating CMake project easily. Only a few steps.
 # 1.	Make a good folder name as the parent, because it is going to be your 
@@ -53,8 +53,7 @@ endif()
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # POLICY  # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-cmake_policy(SET CMP0043 NEW)
-cmake_policy(SET CMP0028 NEW)
+
 # # # # # # # # # # # # # # # # # CHANGE BELOW  # # # # # # # # # # # # # # # # 
 
 
@@ -119,46 +118,6 @@ set(
 	${CMAKE_BINARY_DIR}/bin
 )
 
-# copying external dll to executable path
-if(${WIN32})
-	# copy dll 
-	file(
-		GLOB_RECURSE
-		SYSTEM_DLL
-		${PROJECT_SOURCE_DIR}/*.dll
-	)
-	if(${MSVC})
-		file(
-			COPY
-			${SYSTEM_DLL}
-			DESTINATION
-			${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release
-		)
-
-		file(
-			COPY
-			${SYSTEM_DLL}
-			DESTINATION
-			${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Debug
-		)
-	else()
-		file(
-			COPY
-			${SYSTEM_DLL}
-			DESTINATION
-			${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
-		)
-	endif()
-
-	message(
-		STATUS
-		"Copying Dll...\n"
-		"FROM ${SYSTEM_DLL}\n"
-		"TO ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}"
-	)
-
-endif()
-
 link_directories(
 	${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}
 	${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
@@ -172,52 +131,6 @@ set(
 	Qt5::Widgets
 )
 
-# find all external lib in the current folder recursively
-if(${WIN32})
-	file(
-		GLOB_RECURSE
-		EXTERNAL_LIBRARIES
-		${PROJECT_SOURCE_DIR}/*.lib
-	)
-	if(${MSVC})
-		file(
-			COPY
-			${EXTERNAL_LIBRARIES}
-			DESTINATION
-			${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}/Release
-		)
-
-		file(
-			COPY
-			${EXTERNAL_LIBRARIES}
-			DESTINATION
-			${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}/Debug
-		)
-	else()
-		file(
-			COPY
-			${EXTERNAL_LIBRARIES}
-			DESTINATION
-			${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}
-		)
-	endif()
-	
-	foreach(LIB_NAME ${EXTERNAL_LIBRARIES})
-		
-		get_filename_component(
-			LIB_NAME
-			${LIB_NAME}
-			NAME
-		)
-
-		set(
-			SYSTEM_LIBRARIES
-			${SYSTEM_LIBRARIES}
-			${LIB_NAME}
-		)
-	endforeach()
-endif()
-
 set(
 	SYSTEM_INCLUDE
 	${PROJECT_SOURCE_DIR}
@@ -230,18 +143,12 @@ set(
 	#OTHERS
 	#...
 	# opengl32
-	# comctl32
-	# wsock32
-	# odbc32
-	# odbccp32
 	# legacy_stdio_definitions
 )
 
 set(
 	SYSTEM_INCLUDE
 	${SYSTEM_INCLUDE}
-	# ${PROJECT_SOURCE_DIR}/Dist64
-	# ${PROJECT_SOURCE_DIR}/FL
 	#....
 )
 
