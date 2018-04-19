@@ -11,8 +11,8 @@
         <li>If build executable, create 'main/main.cpp' as the program entry point.</li>
         <li>If build library, no need to do the previous procedure.</li>
         <li>DO NOT modify things not in 'CHANGE BELOW'. </li>
-        <li>If need other package, add your package in 'DEPENDENCY' module.</li>
-        <li>If need resource, add your resource in 'DEPENDENCY' module.</li>
+        <li>If need other package, add packages in 'DEPENDENCY' module.</li>
+        <li>If need resource, add resources in 'DEPENDENCY' module.</li>
         <li>If need other libraries and headers, add them in <code>SYSTEM_LIBRARIES</code> and <code>SYSTEM_INCLUDE</code> in 'LIBRARIES' module. </li>
     </ul>
     <h1>What happen</h1>
