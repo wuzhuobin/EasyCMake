@@ -5,34 +5,29 @@
 </head>
 
 <body>
-    <h1>This is a readme.md doc</h1>
+    <h1>EasyCMake</h1>
     </hr>
-    <h2>This porject works as a repository for containing useful and necessary utilities and documentation for all developer in Sucabot.
-    </h2>
+    <h2>This repository contains some useful CMakelists for fast making C++ projects. </h2>
     <p>
-        <ul>
-            <li>
-            CMakeExampleProject<br/>
-            A Demo of how to use TemplateCMakeLists.txt
-            </li>
-            <li>
-            ComplexTemplatesCMakeLists<br/>
-            A Complex version CMakeLists.txt template. Building shared and static librariew avaliable. Copying *.dll and *.lib. Providing install and export functions. Auto glob *.c*, *.h*, *.ui, and adding them to library and executable.
-            </li>
-            <li>
-            SimpleTemplatesCMakelists<br/>
-            A Simple version CMakeLists.txt template. Building static library only. No *.dll and *.lib coping. Auto glob *.c*, *.h*, *.ui, and adding them to library. While only main/main.cpp is added to exectuable. 
-            </li>
-            <li>
-            LinguistTemplateCMakeLists<br/>
-            A QtLinguist version CMakeLists.txt template. A diverge part of SimpleTemplateCMakeLists. Auto glob *.ts, auto update *.ts, auto create *.qm and auto move *.qm to ${CMAKE_RUNTIME_OUTPUT_DIR}.
-            </li>
-        </ul>
+        <dl>
+            <dt>&#9679;SimpleTemplateCMakeLists</dt>
+            <dd>--Dependency with vtk &amp; itk &amp; qt. </dd>
+            <dt>&#9679;vtk_itk_TemplateCMakeLists</dt>
+            <dd>--Dependency with vtk &amp; itk. </dd>
+            <dt>&#9679;LibDllCMakeLists</dt>
+            <dd>--Dependency with vtk &amp; itk &amp; qt &amp; specified windows dlls libs.</dd>
+            <dt>&#9679;ComplexTemplatesCMakeLists</dt>
+            <dd>--</dd>
+            <dt>&#9679;LinguistTemplateCMakeLists</dt>
+            <dd>--</dd>
+            <dt>&#9679;OpenCV_TemplanteCMakeLists</dt>
+            <dd>--</dd>
+            <dt>&#9679;pcl_TemplateCMakeLists</dt>
+            <dd>--</dd>
+            <dt>&#9679;ResourcesTemplateCMakeLists</dt>
+            <dd>--</dd>
+        </dl>
     </p>
-        
-
-    
-    
 </body>
 </html>
 
