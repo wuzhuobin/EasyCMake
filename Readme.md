@@ -17,15 +17,15 @@
             <dt>&#9679;LibDllCMakeLists</dt>
             <dd>--Dependency with vtk &amp; itk &amp; qt &amp; specified windows dlls libs.</dd>
             <dt>&#9679;ComplexTemplateCMakeLists</dt>
-            <dd>--</dd>
+            <dd>--Dependency with vtk &amp; itk &amp; qt. And it is for building cmake package &amp; install &amp; exporting.  </dd>
             <dt>&#9679;LinguistTemplateCMakeLists</dt>
-            <dd>--</dd>
+            <dd>--Dependency with vtk &amp; itk &amp; qt with option to support qtlinguist. Auto update *.ts and moving *.qm to folder 'bin'. </dd>
             <dt>&#9679;OpenCV_TemplanteCMakeLists</dt>
-            <dd>--</dd>
+            <dd>--Dependency with OpenCV only. </dd>
             <dt>&#9679;pcl_TemplateCMakeLists</dt>
-            <dd>--</dd>
+            <dd>--Dependency with pcl(Point Cloud Library) only.</dd>
             <dt>&#9679;ResourcesTemplateCMakeLists</dt>
-            <dd>--</dd>
+            <dd>--Dependency with vtk &amp; itk &amp; qt &amp; specified resources. Resources can be copy to folder 'bin'. </dd>
         </dl>
     </p>
 </body>

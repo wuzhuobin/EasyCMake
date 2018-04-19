@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Windows lib and dll TemplateCMakeLists</title>
+    <title>Simple Qt vtk itk TemplateCMakeLists</title>
 </head>
 <body>
     <h1>How to use</h1>
@@ -22,6 +22,7 @@
     <h1>What happen</h1>
     <ul>
         <li>CMake will find all '*.c*' '*.h*' files for building. </li>
+        <li>CMake will find all '*.ui' as Qt UI form. </li>
         <li>This template can only build static library. </li>
         <li>If 'main/main.cpp' exists, the project will create both static library files and executable files. </li>
     </ul>

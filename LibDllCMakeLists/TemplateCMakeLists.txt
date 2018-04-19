@@ -14,15 +14,20 @@
 # 	<li>If build executable, create 'main/main.cpp' as the program entry point.</li>
 # 	<li>If build library, no need to do the previous procedure.</li>
 # 	<li>DO NOT modify things not in 'CHANGE BELOW'. </li>
-# 	<li>If need other package, add your package in 'DEPENDENCY' module.</li>
-# 	<li>If need resource, add your resource in 'DEPENDENCY' module.</li>
+# 	<li>If need other Qt module, add modules in 'DEPENDENCY' module.</li>
+# 	<li>If need other package, add packages in 'DEPENDENCY' module.</li>
+# 	<li>If need Qt qrc, add the path in <code>PROJECT_QRC</code> in 'DEPENDENCY' module. </li>
+# 	<li>If need resource, add resources in 'DEPENDENCY' module.</li>
+# 	<li>If need windows dll, add the folder path which contains all dlls in <code>SYSTEM_DLL</code> in 'DEPENDENCY' moduel. </li>
 # 	<li>If need other libraries and headers, add them in <code>SYSTEM_LIBRARIES</code> and <code>SYSTEM_INCLUDE</code> in 'LIBRARIES' module. </li>
 # </ul>
 # <h1>What happen</h1>
 # <ul>
 # 	<li>CMake will find all '*.c*' '*.h*' files for building. </li>
+# 	<li>CMake will find all '*.ui' as Qt UI form. </li>
 # 	<li>This template can only build static library. </li>
 # 	<li>If 'main/main.cpp' exists, the project will create both static library files and executable files. </li>
+# 	<li>Windows dlls will be copyed to '<code>CMAKE_BUILD_PATH</code>/bin', windows libs will be copyed to '<code>CMAKE_BUILD_PATH</code>/lib'. </li>
 # </ul>
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
