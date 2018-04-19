@@ -9,6 +9,7 @@
     </hr>
     <h2>This repository contains some useful CMakelists for fast making C++ projects. </h2>
     <p>
+        It is quite easy to use. For people who don't know cmake while need to use cmake to make C++ project!
         <dl>
             <dt>&#9679;SimpleTemplateCMakeLists</dt>
             <dd>--Dependency with vtk &amp; itk &amp; qt. </dd>
