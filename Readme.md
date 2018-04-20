@@ -14,6 +14,8 @@
             <dd>--Dependency with vtk &amp; itk &amp; qt. </dd>
             <dt>&#9679;vtk_itk_TemplateCMakeLists</dt>
             <dd>--Dependency with vtk &amp; itk. </dd>
+            <dt>&#9679;vmtk_TemplateCMakeLists</dt>
+            <dd>--Dependency with vtk &amp; itk &amp; vmtk. </dd>
             <dt>&#9679;LibDllCMakeLists</dt>
             <dd>--Dependency with vtk &amp; itk &amp; qt &amp; specified windows dlls libs.</dd>
             <dt>&#9679;ComplexTemplatesCMakeLists</dt>
