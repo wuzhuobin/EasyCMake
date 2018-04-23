@@ -1,19 +1,30 @@
 # @file	TemplateCMakeLists.txt
 # @brief	A template CMakeLists.txt which can automatically generate project
 # @author	WUZHUOBIN
-# @version	1.5.0
+# @version	1.6.0
 # @since	Sep.19.2017
-# @date		Mar.22.2018
+# @date		Apr.23.2018
 # 
-# This template is for generating CMake project easily. Only a few steps.
-# 1.	Make a good folder name as the parent, because it is going to be your 
-#		CMake Project name. 
-# 2.	Place all header files and implementation files to your parent folder. 
-#		If there is no header files and implementation files, skip this part. 
-# 3.	Create a folder "main" to place your main function. It has to be named 
-#		as "name.cpp". If there is no or a library is being created, skip this 
-#		part. 
-# 4.	Rename "TemplateCMakeLists.txt" to "CMakeLists.txt". 
+# <h1>How to use</h1>
+# <ul>
+# 	<li>Create a folder to place all header files, implementation files and the 'TemplateCMakeLists.txt'.</li>
+# 	<li>Rename the folder as the project name. Since the folder name will become the project name.</li>
+# 	<li>Rename 'TemplateCMakeLists.txt' to 'CMakeLists.txt'.</li>
+# 	<li>Configure with CMake and follow normal cmake pipeline.</li>
+# 	<li>If build executable, create 'main/main.cpp' as the program entry point.</li>
+# 	<li>If build library, no need to do the previous procedure.</li>
+# 	<li>DO NOT modify things not in 'CHANGE BELOW'. </li>
+# 	<li>If need other package, add packages in 'DEPENDENCY' module.</li>
+# 	<li>If need resource, add resources in 'DEPENDENCY' module.</li>
+# 	<li>If need other libraries and headers, add them in <code>SYSTEM_LIBRARIES</code> and <code>SYSTEM_INCLUDE</code> in 'LIBRARIES' module. </li>
+# </ul>
+# <h1>What happen</h1>
+# <ul>
+# 	<li>CMake will find all '*.c*' '*.h*' files for building. </li>
+# 	<li>This template can only build static library. </li>
+# 	<li>If 'main/main.cpp' exists, the project will create both static library files and executable files. </li>
+# 	<li>This CMakeLists is for project with OpenCV dependency only.</li>
+# </ul>+
 # 
 #
 #
