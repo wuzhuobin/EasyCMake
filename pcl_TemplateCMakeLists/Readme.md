@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head><title>vtk itk cmake</title></head>
+<head><title>Point Cloud Library cmake</title></head>
 <body>
     <h1>How to use</h1>
     <ul>
@@ -11,8 +11,8 @@
         <li>If build executable, create 'main/main.cpp' as the program entry point.</li>
         <li>If build library, no need to do the previous procedure.</li>
         <li>DO NOT modify things not in 'CHANGE BELOW'. </li>
-        <li>If need other package, add your package in 'DEPENDENCY' module.</li>
-        <li>If need resource, add your resource in 'DEPENDENCY' module.</li>
+        <li>If need other package, add packages in 'DEPENDENCY' module.</li>
+        <li>If need resource, add resources in 'DEPENDENCY' module.</li>
         <li>If need other libraries and headers, add them in <code>SYSTEM_LIBRARIES</code> and <code>SYSTEM_INCLUDE</code> in 'LIBRARIES' module. </li>
     </ul>
     <h1>What happen</h1>
@@ -20,6 +20,7 @@
         <li>CMake will find all '*.c*' '*.h*' files for building. </li>
         <li>This template can only build static library. </li>
         <li>If 'main/main.cpp' exists, the project will create both static library files and executable files. </li>
+        <li>This CMakeLists is for project with PCL dependency only.</li>
     </ul>
 </body>  
 </html>
