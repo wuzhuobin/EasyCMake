@@ -86,7 +86,7 @@ find_package(VTK REQUIRED)
 include(${VTK_USE_FILE})
 
 # CTK
-find_package(CTK REQURIED)
+find_package(CTK REQUIRED)
 include(${CTK_USE_FILE})
 
 # QT
