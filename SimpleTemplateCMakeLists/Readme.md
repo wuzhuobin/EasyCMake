@@ -25,6 +25,7 @@
         <li>CMake will find all '*.ui' as Qt UI form. </li>
         <li>This template can only build static library. </li>
         <li>If 'main/main.cpp' exists, the project will create both static library files and executable files. </li>
+        <li>This CMakeLists is for project with VTK ITK QT dependency only.</li>
     </ul>
 </body>
 </html>

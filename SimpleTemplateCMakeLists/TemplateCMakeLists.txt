@@ -1,9 +1,9 @@
 # @file		TemplateCMakeLists.txt
 # @brief	A template CMakeLists.txt which can automatically generate project
 # @author	WUZHUOBIN
-# @version	1.6.0
+# @version	1.7.0
 # @since	Sep.19.2017
-# @date 	Apr.19.2018
+# @date 	May.10.2018
 # 
 # <h1>How to use</h1>
 # <ul>
@@ -26,6 +26,7 @@
 # 	<li>CMake will find all '*.ui' as Qt UI form. </li>
 # 	<li>This template can only build static library. </li>
 # 	<li>If 'main/main.cpp' exists, the project will create both static library files and executable files. </li>
+# 	<li>This CMakeLists is for project with VTK ITK QT dependency only.</li>
 # </ul>
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

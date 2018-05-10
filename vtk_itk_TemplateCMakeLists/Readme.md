@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head><title>vtk itk cmake</title></head>
+<head><title>VTK ITK cmake</title></head>
 <body>
     <h1>How to use</h1>
     <ul>
