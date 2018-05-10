@@ -12,23 +12,25 @@
         <b>It is quite easy to use. For people who don't know cmake while need to use cmake to make C++ project!</b>
         <dl>
             <dt>&#9679;SimpleTemplateCMakeLists</dt>
-            <dd>--Dependency with vtk &amp; itk &amp; qt. </dd>
+            <dd>--Dependency with VTK &amp; ITK &amp; QT. </dd>
             <dt>&#9679;vtk_itk_TemplateCMakeLists</dt>
-            <dd>--Dependency with vtk &amp; itk. </dd>
+            <dd>--Dependency with VTK &amp; ITK. </dd>
+            <dt>&#9679;ctk_TemplateCMakeLists</dt>
+            <dd>--Dependency with VTK &amp; ITK &amp; CTK &amp; QT</dd>
             <dt>&#9679;vmtk_TemplateCMakeLists</dt>
-            <dd>--Dependency with vtk &amp; itk &amp; vmtk. </dd>
+            <dd>--Dependency with VTK &amp; ITK &amp; VMTK. </dd>
             <dt>&#9679;LibDllCMakeLists</dt>
-            <dd>--Dependency with vtk &amp; itk &amp; qt &amp; specified windows dlls libs.</dd>
+            <dd>--Dependency with VTK &amp; ITK &amp; QT &amp; specified windows dlls libs.</dd>
             <dt>&#9679;ComplexTemplateCMakeLists</dt>
-            <dd>--Dependency with vtk &amp; itk &amp; qt. And it is for building cmake package &amp; install &amp; exporting.  </dd>
+            <dd>--Dependency with VTK &amp; ITK &amp; QT. And it is for building cmake package &amp; install &amp; exporting.  </dd>
             <dt>&#9679;LinguistTemplateCMakeLists</dt>
-            <dd>--Dependency with vtk &amp; itk &amp; qt with option to support qtlinguist. Auto update *.ts and moving *.qm to folder 'bin'. </dd>
+            <dd>--Dependency with VTK &amp; ITK &amp; QT with option to support qtlinguist. Auto update *.ts and moving *.qm to folder 'bin'. </dd>
             <dt>&#9679;OpenCV_TemplanteCMakeLists</dt>
             <dd>--Dependency with OpenCV only. </dd>
             <dt>&#9679;pcl_TemplateCMakeLists</dt>
             <dd>--Dependency with pcl(Point Cloud Library) only.</dd>
             <dt>&#9679;ResourcesTemplateCMakeLists</dt>
-            <dd>--Dependency with vtk &amp; itk &amp; qt &amp; specified resources. Resources can be copy to folder 'bin'. </dd>
+            <dd>--Dependency with VTK &amp; ITK &amp; QT &amp; specified resources. Resources can be copy to folder 'bin'. </dd>
         </dl>
     </p>
 </body>
