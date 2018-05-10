@@ -92,6 +92,7 @@ include(${CTK_USE_FILE})
 # QT
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Xml REQUIRED)
 # # # # # # # # # # # # # # # # # CHANGE BELOW  # # # # # # # # # # # # # # # # 
 #find_package(Qt5.... REQUIRED)
 #find_package(... REQURIED)
@@ -145,6 +146,7 @@ set(
 	${CTK_LIBRARIES}
 	Qt5::Core
 	Qt5::Widgets
+	Qt5::Xml
 )
 
 set(
