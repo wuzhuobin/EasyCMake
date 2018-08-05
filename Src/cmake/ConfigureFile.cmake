@@ -1,0 +1,12 @@
+configure_file(
+	cmake/ProjectNameConfig.cmake.in
+	${CMAKE_BINARY_DIR}/lib/cmake/${PROJECT_NAME}-config.cmake
+	@ONLY
+)
+install(
+	FILES
+	${CMAKE_BINARY_DIR}/lib/cmake/${PROJECT_NAME}-config.cmake
+	${PROJECT_CMAKE}
+	DESTINATION
+	lib/cmake
+)
