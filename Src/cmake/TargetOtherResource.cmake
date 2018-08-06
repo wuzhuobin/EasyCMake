@@ -70,6 +70,12 @@ foreach(ONE ${PROJECT_RESOURCE})
 		)
 	endif()
 endforeach()
+install(
+	DIRECTORY
+	${PROJECT_RESOURCE}
+	DESTINATION
+	bin
+)
 if(TARGET ${PROJECT_NAME})
     add_dependencies(
         ${PROJECT_NAME}
