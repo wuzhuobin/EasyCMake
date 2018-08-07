@@ -51,8 +51,8 @@ endif()
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # Allow the developer to build example.
 option(BUILD_EXAMPLE "Build Example" OFF)
-if(BUILD_EXAMPLE AND EXISTS ${PROJECT_SOURCE_DIR}/Example)
-	add_subdirectory(${PROJECT_SOURCE_DIR}/Example)
+if(BUILD_EXAMPLE AND EXISTS ${PROJECT_SOURCE_DIR}/${PROJECT_NAME}Example)
+	add_subdirectory(${PROJECT_SOURCE_DIR}/${PROJECT_NAME}Example)
 endif()
 # Allow the developer to do testing or not.
 option(BUILD_TESTING "Build Testing" OFF)
@@ -147,6 +147,7 @@ if(PROJECT_SRC)
 	)
 endif()
 # # # # # # # # # # # # # # # # # BUILD EXECUTABLE # # # # # # # # # # # # # # 
+if(PROJECT_MAIN_SRC)
 	add_executable(
 		${PROJECT_NAME}_main
 		${PROJECT_MAIN_SRC}
@@ -197,7 +198,7 @@ if(TARGET ${PROJECT_NAME}_main)
 		${PROJECT_LIBRARY}
 	)
 	target_include_directories(
-		${PROJECT_NAME}
+		${PROJECT_NAME}_main
 		PUBLIC
 		${PROJECT_INCLUDE}
 	)

@@ -4,6 +4,6 @@ include(${CTK_USE_FILE})
 # LIBRARIES
 list(
     APPEND
-    PROJECT_LIBRARIES
+    PROJECT_LIBRARY
     ${CTK_LIBRARIES}
 )
