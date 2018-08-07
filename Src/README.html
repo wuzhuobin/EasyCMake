@@ -1,0 +1,58 @@
+<html>
+<body>
+  <h1>EasyCMake</h1>
+  <p>-- A template for creatint cmake project rapidly.</p>
+  <p>
+    <h2 style="text-align: center">Manual</h2>
+    <ol>
+    <li>Creating a well named folder.
+      <ul>
+        <li>Folder name will be used as project name. </li>
+        <li>The folder name must be unique, since it will be used as library name or executable name.</li>
+      </ul>
+    </li>
+    <li>Placing codes in the folder, header files and source files.</li>
+        <ul>
+          <li>The folder will be scan when doing cmake configure.</li>
+        </ul>
+      <li>Creating a cmake folder and selecting needed find cmake scripts and place them in it.</li>
+        <ul>
+          <li>The CMakeLists.txt will scan the folder cmake.</li>
+          <li>Find*.cmake cmake scripts are include for finding external dependency.
+            They are include before creating the library or executable target. 
+            They will request package and do library linkage and seting include path.
+            e.g. If FindVTK.cmake is placed, the include header and library linkage of vtk will 
+            be automatically figured out.
+          </li>
+          <li>Target*.cmake cmake scripts are include for adding other target instead of library
+              and executable. They are include after library or executable targete are created. 
+              e.g. iF TargetOtherResource.cmake is placed, the library and executable targe will 
+              depend on it and build after the resources are copied to the right place. 
+          </li>
+        </ul>
+        <li>After that, the project could be configured as common cmake project. </li>
+    </ol>
+    Following is the file structure: <br>
+    <hr>
+    _ProjectName <br>
+    |&nbsp;&nbsp;&nbsp;|--*.c      <br>
+    |&nbsp;&nbsp;&nbsp;|--*.cpp    <br>
+    |&nbsp;&nbsp;&nbsp;|--*.cxx    <br>
+    |&nbsp;&nbsp;&nbsp;|--*.h      <br>
+    |&nbsp;&nbsp;&nbsp;|--*.hpp    <br>
+    |&nbsp;&nbsp;&nbsp;|--_cmake    <br>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--Find*.cmake  <br>
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--Target*.cmake    <br>
+    <hr>
+    <h2 style="text-align: center">Models implemented</h2> 
+    <ul>
+      <li>FindCTK.cmake</li>
+      <li>FindVTK.cmake</li>
+      <li>FindITK.cmake</li>
+      <li>FindQtCoreQtWidget.cmake</li>
+      <li>FindQtXml.cmake</li>
+      <li>FindQtOpenGL.cmake</li>
+    </ul>
+  </p>
+</body>
+</html>
