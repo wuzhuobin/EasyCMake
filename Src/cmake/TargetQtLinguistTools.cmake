@@ -5,6 +5,7 @@ list(
     APPEND
     PROJECT_TS
     ${PROJECT_TS}
+    ${CMAKE_PROJECT_TS}
 )
 option(UPDATE_TS_FILES "Update Qt *.ts files. " OFF)
 if(${UPDATE_TS_FILES})

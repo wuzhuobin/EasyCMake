@@ -34,6 +34,11 @@ file(
     PROJECT_QRC
     *.qrc
 )
+list(
+    APPEND
+    PROJECT_QRC
+    ${CMAKE_PROJECT_QRC}
+)
 qt5_add_resources(
     PROJECT_QRC_SRC
     ${PROJECT_QRC}
@@ -44,6 +49,13 @@ list(
     ${PROJECT_QRC}
     ${PROJECT_QRC_SRC}
 )
+if(PROJECT_MAIN_SRC)
+    list(
+        APPEND
+        PROJECT_MAIN_SRC
+        ${PROJECT_QRC_SRC}
+    )
+endif()
 # *.moc files
 # moc_*.cpp files
 # file(

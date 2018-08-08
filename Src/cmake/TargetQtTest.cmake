@@ -3,8 +3,8 @@ if(BUILD_TESTING)
     find_package(Qt5Test REQUIRED)
 # Enable CTest.
     include(CTest)
-    file(GLOB PROJECT_ONE Testing/*.c*)
-    foreach(ONE ${PROJECT_ONE})
+    file(GLOB PROJECT_TEST_SRC ${PROJECT_SOURCE_DIR}/Testing/*.c*)
+    foreach(ONE ${PROJECT_TEST_SRC})
         get_filename_component(FILE_NAME ${ONE} NAME_WE)
         add_executable(
             ${FILE_NAME}
