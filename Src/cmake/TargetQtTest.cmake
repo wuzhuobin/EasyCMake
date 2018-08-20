@@ -1,5 +1,14 @@
 if(BUILD_TESTING)
 # Qt5::Test
+    if(NOT Qt5Core_FOUND)
+        find_package(Qt5Core REQUIRED)
+        list(
+            APPEND
+            PROJECT_LIBRARY
+            Qt5::Core
+        )
+        set(CMAKE_AUTOMOC ON)
+    endif()
     find_package(Qt5Test REQUIRED)
 # Enable CTest.
     include(CTest)

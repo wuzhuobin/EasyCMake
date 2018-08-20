@@ -1,6 +1,6 @@
 # Qt5Sql
 find_package(Qt5Sql REQUIRED)
-# LIBRARIES
+# LIBRARY
 list(
     APPEND
     PROJECT_LIBRARY
