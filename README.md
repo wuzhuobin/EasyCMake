@@ -21,12 +21,12 @@
 
 * * *
 
-8.  Creating a cmake folder and selecting needed find cmake scripts and place them in it.
+5.  Creating a cmake folder and selecting needed find cmake scripts and place them in it.
     *   This step is for finding external CMake packages, external libraries or other dependencies. The CMakeLists.txt will scan the folder cmake and include them.
     *   Find*.cmake cmake scripts are include for finding external dependencies before creating target process. They are include before creating the library or executable target. They will request packages, do libraries linkage and seting include path. e.g. If FindVTK.cmake is placed, the include header and library linkage of vtk will be automatically figured out.
     *   However, the Find*.cmake script in EasyCmake cannot include all packages and libraries. It is suggest user to write their own Find*.cmake to fulfill the dependencies.
     *   Target*.cmake cmake scripts are include for adding other target instead of library and executable. They are include after library or executable targete are created. e.g. iF TargetOtherResource.cmake is placed, the library and executable targe will depend on it and build after the resources are copied to the right place.
-9.  This CMake script is also possible to build a hierarchy project.
+6.  This CMake script is also possible to build a hierarchy project.
     *   Placing other cmake project under this folder.
     *   Creating SubDirectory.cmake and place it in cmake folder. Adding line: `add_subdirectory(SubFolderName)` in it. Then, the subproject could be added to the current cmake project.
     *   This way could be applied to its subproject as well.
