@@ -22,8 +22,7 @@
           </li>
         </ul>
     <li>After that, the project could be configured as common cmake project. </li>
-    <hr><h3>Advance</h3><hr>
-    <li>Creating a cmake folder and selecting needed find cmake scripts and place them in it.
+    <li>(Optional)Creating a cmake folder and selecting needed find cmake scripts and place them in it.
         <ul>
           <li>This step is for finding external CMake packages, external libraries or other dependencies.
             The CMakeLists.txt will scan the folder cmake and include them.</li>
@@ -42,7 +41,7 @@
               depend on it and build after the resources are copied to the right place. 
           </li>
         </ul>
-        <li>This CMake script is also possible to build a hierarchy project. 
+        <li>(Optional)This CMake script is also possible to build a hierarchy project. 
           <ul>
             <li>Placing other cmake project under this folder. </li>
             <li>Creating SubDirectory.cmake and place it in cmake folder. 
@@ -117,7 +116,7 @@
     <li>Moving the previous legacy EasyCMake to LegacyV1.0 folder. </li>
     <li>Removing CMake related install things. Install related script was extracted to cmake/TargetInstall.cmake and only export things when it is needed. User can copy it if needed.</li>
     <li>Removing dependency of FindQtCoreQtWidget.cmake from TargetQtTest.cmake. Now TargetQtTest.cmake can find its own QtCore instead. </li>
-    <li>Using another syntax of target_link_libraries, with possible to define <code>PUBLIC INTERFACE PRIVATE</code> of Target and Dependents.</li>
+    <li>Using another syntax of target_link_librariesTarget and its Dependents.</li>
   </ol>
 </body>
 </html>
