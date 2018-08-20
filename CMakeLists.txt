@@ -3,12 +3,8 @@
 # @author	WUZHUOBIN
 # @version	2.2
 # @since	Aug.06.2018
-# @date 	Aug.14.2018
+# @date 	Aug.20.2018
 # @log
-# The Previous TemplateCMakeLists.txt should be version 1 easycmake.
-# This should be version 2.0.
-# Removing install things make this cmake only export things when it is needed.
-# Using another syntax of target_link_libraries, Target and its Dependents 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #			Copyright (c) WUZHUOBIN 											    #
 #			All rights reserved.												    #
