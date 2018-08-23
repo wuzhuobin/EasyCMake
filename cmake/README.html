@@ -1,0 +1,69 @@
+<html>
+<body>
+<h1>Components</h1>
+<p>--Providing loose coupling ways to extend EasyCMake functions. 
+    Just doing simple copy and paste files can add new dependency to the CMake build projects
+</p>
+<h2>SubDirectory</h2>
+<ol>
+  <li>
+    <h4>Subdirectory.cmake</h4>
+    This module is used in build hierarchical cmake project. It will be include in the
+    beginning of CMakeList.txt. It should be made of only <code>add_subdirectory(...)</code>.
+    Adding all sub modules by adding a new line of <code>add_subdirectory(...)</code> inside.
+    e.g.
+    <code>
+      add_subdirectory(QvtkUtil)<br/>
+      add_subdirectory(Filter)<br/>
+      add_subdirectory(Widget)<br/>
+    </code>
+  </li>
+</ol>
+<h2>Find Modules</h2>
+These modules would be mainly used for finding dependency and linking library. 
+They are included in the CMakeLists.txt before creation of the default CMake's targets.
+<p>
+  <ol>
+    <li>
+      <h4>FindCTK.cmake</h4>
+      This module are used for find CTK and link its library.
+    </li>
+    <li>
+      <h4>FindITK.cmake</h4>
+      This module are used for find ITK and link its library.
+    </li>
+    <li>
+      <h4>FindQtCoreQtWidget.cmake</h4>
+    </li>
+    <li>
+      <h4>FindQtOpenGl.cmake</h4>
+    </li>
+    <li>
+      <h4>FindQtPrintSupport.cmake</h4>
+    </li>
+  </ol>
+</p>
+<h2>Target Modules</h2>
+These moudles would be mainly used for creating new target whether it dependens on others. 
+Thery are included in he CMakeLists.txt after the creation of the default CMake's targets.
+<p>
+  <ol>
+    <li>
+      <h4>TargetConfigureFile.cmake</h4>
+    </li>
+    <li>
+      <h4>TargetInstall.cmake</h4>
+    </li>
+    <li>
+      <h4>TargetOtherResource.cmake</h4>
+    </li>
+    <li>
+      <h4>TargetQtLinguistTools.cmake</h4>
+    </li>
+    <li>
+      <h4>TargetQtTest.cmake</h4>
+    </li>
+  </ol>
+</p>
+</body>
+</html>

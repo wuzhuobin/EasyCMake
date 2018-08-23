@@ -1,4 +1,4 @@
-# @file	CMakeLists.txt
+# @file		CMakeLists.txt
 # @brief	A CMakeLists.txt which can automatically generate project
 # @author	WUZHUOBIN
 # @version	2.2
