@@ -27,6 +27,12 @@ These modules would be mainly used for finding dependency and linking library. T
 
 5.  #### FindQtPrintSupport.cmake
 
+6.  #### FindQtSql.cmake
+
+7.  #### FindQtXml.cmake
+
+8.  #### FindVTK.cmake
+
 ## Target Modules
 
 These moudles would be mainly used for creating new target whether it dependens on others. Thery are included in he CMakeLists.txt after the creation of the default CMake's targets.
