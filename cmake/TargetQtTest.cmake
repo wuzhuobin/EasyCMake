@@ -1,3 +1,20 @@
+# @file	    TargetQtTest.cmake
+# @brief	CMake script for finding QtTest and creating testing targets. If 
+#           FindQtCoreQtWidget.cmake is not included, this script will find QtCore itself 
+#           and enable CMAKE_AUTOMOC function.
+# @author	WUZHUOBIN
+# @version	1.0
+# @since	Aug.23.2018
+# @date 	Aug.28.2018
+# @log
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#			Copyright (c) WUZHUOBIN 											    #
+#			All rights reserved.												    #
+#			See Copyright.txt													    #
+#			This software is distributed WITHOUT ANY WARRANTY; without even		    #
+#			the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR	    #
+#			PURPOSE.  See the above copyright notice for more information.		    #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 if(BUILD_TESTING)
 # Qt5::Test
     if(NOT Qt5Core_FOUND)

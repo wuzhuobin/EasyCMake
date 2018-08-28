@@ -26,29 +26,42 @@ They are included in the CMakeLists.txt before creation of the default CMake's t
   <ol>
     <li>
       <h4>FindCTK.cmake</h4>
-      This module are used for find CTK and link its library.
+      This module is used for finding CTK and link its library.
     </li>
     <li>
       <h4>FindITK.cmake</h4>
-      This module are used for find ITK and link its library.
+      This module is used for finding ITK and link its library.
     </li>
     <li>
       <h4>FindQtCoreQtWidget.cmake</h4>
+      This module is used for finding Qt5Core and Qt5Widget and link its library. The AUTOMOC 
+      function of cmake will be enabled, the cmake will automatically find and moc. All *.ui files 
+      of qt will be wrapped to generate qt's ui header. All *.qrc files of qt will be wrapped to
+      generate qt resource source file.
     </li>
     <li>
       <h4>FindQtOpenGl.cmake</h4>
+      This module is used for finding Qt5OpenGl and link its library. And FindQtCoreQtWidget is the 
+      prerequisite.
     </li>
     <li>
       <h4>FindQtPrintSupport.cmake</h4>
+      This module is used for finding Qt5PrintSupport and link its library. And FindQtCoreQtWidget is the 
+      prerequisite.
     </li>
     <li>
       <h4>FindQtSql.cmake</h4>
+      This module is used for finding Qt5Sql and link its library. And FindQtCoreQtWidget is the 
+      prerequisite.
     </li>
     <li>
-      <h4>FindQtXml.cmake</h4>
+      <h4>FindQtXml.cmake </h4>
+      This module is used for finding Qt5Xml and link its library. And FindQtCoreQtWidget is the 
+      prerequisite.
     </li>
     <li>
       <h4>FindVTK.cmake</h4>
+      This module is used for finding VTK and its library.
     </li>
   </ol>
 </p>
@@ -59,18 +72,22 @@ Thery are included in he CMakeLists.txt after the creation of the default CMake'
   <ol>
     <li>
       <h4>TargetConfigureFile.cmake</h4>
+      TBA
     </li>
     <li>
       <h4>TargetInstall.cmake</h4>
+      TBA
     </li>
     <li>
       <h4>TargetOtherResource.cmake</h4>
+      TBA
     </li>
     <li>
       <h4>TargetQtLinguistTools.cmake</h4>
     </li>
     <li>
       <h4>TargetQtTest.cmake</h4>
+      TBA
     </li>
   </ol>
 </p>

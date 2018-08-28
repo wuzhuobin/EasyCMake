@@ -1,5 +1,5 @@
 # @file	    FindQtCoreQtWidget.cmake
-# @brief	CMake script for find QtCore and QtWidget.
+# @brief	CMake script for finding QtCore and QtWidget.
 # @author	WUZHUOBIN
 # @version	1.0
 # @since	Aug.23.2018
