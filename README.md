@@ -42,33 +42,7 @@ _ProjectName
 
 ## Models implemented
 
-<dl>
-
-<dt>·FindCTK.cmake</dt>
-
-<dd>Using CTK in the project.</dd>
-
-<dt>·FindVTK.cmake</dt>
-
-<dd>Using VTK in the project.</dd>
-
-<dt>·FindITK.cmake</dt>
-
-<dd>Using ITK in the project.</dd>
-
-<dt>·FindQtCoreQtWidget.cmake</dt>
-
-<dd>Using QtCore QtWidgets in the project. And it will also enable Meta Object Compiler(MOC), User Interface Compiler(UIC), Qt Resource Compiler(QRC) function. Header files, source files, ui files, qrc files will be processed accordingly.</dd>
-
-<dt>·FindQtXml.cmake</dt>
-
-<dd>Using QtXml in the project. But FindQtCoreQtWidget.cmake should be used as well.</dd>
-
-<dt>·FindQtOpenGL.cmake</dt>
-
-<dd>Using QtOpenGL in the project. But FindQtCoreQtWidget.cmake should be used as well.</dd>
-
-</dl>
+Detail please refere to [cmake](./cmake)
 
 * * *
 
@@ -100,6 +74,10 @@ _ProjectName
 * * *
 
 ## Release notes.
+
+### V2.3 08/229/2018
+
+1.  Adding FindQtConcurrent.cmake
 
 ### V2.2 08/20/2018
 
