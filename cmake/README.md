@@ -1,64 +1,87 @@
-# Components
+# EasyCMake
 
---Providing loose coupling ways to extend EasyCMake functions. Just doing simple copy and paste files can add new dependency to the CMake build projects
+-- A template for creatint cmake project rapidly.
 
-## SubDirectory
+## Manual
 
-1.  #### Subdirectory.cmake
+1.  Creating a well named folder.
+    *   Folder name will be used as project name.
+    *   The folder name must be unique, since it will be used as library name or executable name. Creating ${PROJECT_NAME}.lib, ${PROJECT_NAME}.so, ${PROJECT_NAME}.a, ${PROJECT_NAME}.exe, etc.
+2.  Placing codes in the folder, header files and source files.
 
-    This module is used in build hierarchical cmake project. It will be include in the beginning of CMakeList.txt. It should be made of only `add_subdirectory(...)`. Adding all sub modules by adding a new line of `add_subdirectory(...)` inside. e.g. `add_subdirectory(QvtkUtil)  
-    add_subdirectory(Filter)  
-    add_subdirectory(Widget)  
-    `
+*   The folder will be scan when doing cmake configure.
+*   *.c* and *.h* will be treated properly as c++ source files and header files and creating library target.
+*   If main/main.cpp or main/main.cxx exists, they will be treated as the main function and program entry point. An executable target will be created as well.
 
-## Find Modules
+4.  After that, the project could be configured as common cmake project.
+5.  (Optional)Creating a cmake folder and selecting needed find cmake scripts and place them in it.
+    *   This step is for finding external CMake packages, external libraries or other dependencies. The CMakeLists.txt will scan the folder cmake and include them.
+    *   Find*.cmake cmake scripts are include for finding external dependencies before creating target process. They are include before creating the library or executable target. They will request packages, do libraries linkage and seting include path. e.g. If FindVTK.cmake is placed, the include header and library linkage of vtk will be automatically figured out.
+    *   However, the Find*.cmake script in EasyCmake cannot include all packages and libraries. It is suggest user to write their own Find*.cmake to fulfill the dependencies.
+    *   Target*.cmake cmake scripts are include for adding other target instead of library and executable. They are include after library or executable targete are created. e.g. iF TargetOtherResource.cmake is placed, the library and executable targe will depend on it and build after the resources are copied to the right place.
+6.  (Optional)This CMake script is also possible to build a hierarchy project.
+    *   Placing other cmake project under this folder.
+    *   Creating SubDirectory.cmake and place it in cmake folder. Adding line: `add_subdirectory(SubFolderName)` in it. Then, the subproject could be added to the current cmake project.
+    *   This way could be applied to its subproject as well.
 
-These modules would be mainly used for finding dependency and linking library. They are included in the CMakeLists.txt before creation of the default CMake's targets.
+Following is the file structure:  
 
-1.  #### FindCTK.cmake
+* * *
 
-    This module is used for finding CTK and link its library.
-2.  #### FindITK.cmake
+_ProjectName  
+|   |--*.c* (c, cc, cpp, cxx...)  
+|   |--*.h* (h, hpp, hxx...)  
+|   |--_main  
+|       |--main.c* (c, cc, cpp, cxx...)  
+|   |--_cmake  
+|       |--Find*.cmake  
+|       |--Target*.cmake  
+|       |--SubDirectory.cmake  
 
-    This module is used for finding ITK and link its library.
-3.  #### FindQtCoreQtWidget.cmake
+* * *
 
-    This module is used for finding Qt5Core and Qt5Widget and link its library. The AUTOMOC function of cmake will be enabled, the cmake will automatically find and moc. All *.ui files of qt will be wrapped to generate qt's ui header. All *.qrc files of qt will be wrapped to generate qt resource source file.
-4.  #### FindQtOpenGl.cmake
+## Models implemented
 
-    This module is used for finding Qt5OpenGl and link its library. And FindQtCoreQtWidget is the prerequisite.
-5.  #### FindQtPrintSupport.cmake
+Detail please refere to [cmake](./cmake)
 
-    This module is used for finding Qt5PrintSupport and link its library. And FindQtCoreQtWidget is the prerequisite.
-6.  #### FindQtSql.cmake
+* * *
 
-    This module is used for finding Qt5Sql and link its library. And FindQtCoreQtWidget is the prerequisite.
-7.  #### FindQtXml.cmake
+## Components
 
-    This module is used for finding Qt5Xml and link its library. And FindQtCoreQtWidget is the prerequisite.
-8.  #### FindQtConcurrent.cmake
+<dl>
 
-    This module is used for finding Qt5Concurrent and link its library. And FindQtCoreQtWidget is the prerequisite.
-9.  #### FindVTK.cmake
+<dt>LegacyV1.0</dt>
 
-    This module is used for finding VTK and its library.
+<dd>The legacy EasyCMake
 
-## Target Modules
+*   Using many TemplateCMakeLists.txt to provide different functions to fufill project requirements.
+*   While coming to the requirement that need multiple different functions in one project, it is inevasible to change the TemplateCMakelist.txt.
+*   The TemplateCMakeLists.txt is always needed to be changed a lot, need to read CMakeLists.txt codes. Users didn't read manual and modifying randomly.
+*   Modulizing the functions and lose coupling.
 
-These moudles would be mainly used for creating new target whether it dependens on others. Thery are included in he CMakeLists.txt after the creation of the default CMake's targets.
+</dd>
 
-1.  #### TargetConfigureFile.cmake
+<dt>CMakeLists.txt</dt>
 
-    TBA
-2.  #### TargetInstall.cmake
+<dd>EasyCMake V2.0 CMakeLists.txt. The base of the EasyCmakeV2\. Basically user does not nedd to modify this file. User may focus more on cmake script in cmake folder.</dd>
 
-    TBA
-3.  #### TargetOtherResource.cmake
+<dt>cmake</dt>
 
-    TBA
-4.  #### TargetQtLinguistTools.cmake
+<dd>Folder contains many cmake scripts providing different functions. User should select some of them to copy to the project's cmake folder.</dd>
 
-    TBA
-5.  #### TargetQtTest.cmake
+</dl>
 
-    TBA
+* * *
+
+## Release notes.
+
+### V2.3 08/229/2018
+
+1.  Adding FindQtConcurrent.cmake
+
+### V2.2 08/20/2018
+
+1.  Moving the previous legacy EasyCMake to LegacyV1.0 folder.
+2.  Removing CMake related install things. Install related script was extracted to cmake/TargetInstall.cmake and only export things when it is needed. User can copy it if needed.
+3.  Removing dependency of FindQtCoreQtWidget.cmake from TargetQtTest.cmake. Now TargetQtTest.cmake can find its own QtCore instead.
+4.  Using another syntax of target_link_librariesTarget and its Dependents.
