@@ -36,7 +36,10 @@ These modules would be mainly used for finding dependency and linking library. T
 7.  #### FindQtXml.cmake
 
     This module is used for finding Qt5Xml and link its library. And FindQtCoreQtWidget is the prerequisite.
-8.  #### FindVTK.cmake
+8.  #### FindQtConcurrent.cmake
+
+    This module is used for finding Qt5Concurrent and link its library. And FindQtCoreQtWidget is the prerequisite.
+9.  #### FindVTK.cmake
 
     This module is used for finding VTK and its library.
 
@@ -55,6 +58,7 @@ These moudles would be mainly used for creating new target whether it dependens 
     TBA
 4.  #### TargetQtLinguistTools.cmake
 
+    TBA
 5.  #### TargetQtTest.cmake
 
     TBA
