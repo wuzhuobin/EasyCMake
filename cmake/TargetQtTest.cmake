@@ -3,9 +3,9 @@
 #           FindQtCoreQtWidget.cmake is not included, this script will find QtCore itself 
 #           and enable CMAKE_AUTOMOC function.
 # @author	WUZHUOBIN
-# @version	1.0
+# @version	1.1
 # @since	Aug.23.2018
-# @date 	Aug.28.2018
+# @date 	Sep.03.2018
 # @log
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #			Copyright (c) WUZHUOBIN 											    #
@@ -17,16 +17,14 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 if(BUILD_TESTING)
 # Qt5::Test
-    if(NOT Qt5Core_FOUND)
-        find_package(Qt5Core REQUIRED)
-        list(
-            APPEND
-            PROJECT_LIBRARY
-            Qt5::Core
-        )
-        set(CMAKE_AUTOMOC ON)
-    endif()
+    find_package(Qt5Core REQUIRED)
     find_package(Qt5Test REQUIRED)
+    list(
+        APPEND
+        PROJECT_LIBRARY
+        Qt5::Core
+    )
+    set(CMAKE_AUTOMOC ON)
 # Enable CTest.
     include(CTest)
     file(GLOB PROJECT_TEST_SRC ${PROJECT_SOURCE_DIR}/Testing/*.c*)
