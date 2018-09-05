@@ -75,7 +75,11 @@ Detail please refere to [cmake](./cmake)
 
 ## Release notes.
 
-### V2.3 08/229/2018
+### V2.4 09/05/2018
+
+1.  TargetQtTest.cmake always find Qt5Core to make sure it is linked correctly.
+
+### V2.3 08/29/2018
 
 1.  Adding FindQtConcurrent.cmake
 

@@ -85,7 +85,9 @@ Thery are included in he CMakeLists.txt after the creation of the default CMake'
     </li>
     <li>
       <h4>TargetOtherResource.cmake</h4>
-      TBA
+      This module is used for creating new target which it copys some necessary resources (such as 
+      some STLs, some example images..) to the folder where exectuables are placed. The PATH set in 
+      <code>PROJECT_RESOURCE</code> must be a folder path. So it can be copied recursively. 
     </li>
     <li>
       <h4>TargetQtLinguistTools.cmake</h4>
@@ -93,7 +95,10 @@ Thery are included in he CMakeLists.txt after the creation of the default CMake'
     </li>
     <li>
       <h4>TargetQtTest.cmake</h4>
-      TBA
+      This module is used for creating new target about doing qtest and ctest. It will scan through the path
+      <code>${PROJECT_SOURCE_DIR>/Testing/*.c*</code> and create exectuable for each file. Each executable will 
+      be added to ctest as well. Each *.c* file is suggested to written in qtest format but it is not
+      compulsory. Since qtest need qobject, this target will append Qt5Core dependency.
     </li>
   </ol>
 </p>
