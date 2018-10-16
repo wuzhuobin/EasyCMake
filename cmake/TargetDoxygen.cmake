@@ -1,0 +1,20 @@
+if(BUILD_DOCUMENTATION)
+    configure_file(
+        ${PROJECT_SOURCE_DIR}/doxygen/Doxyfile.in
+        ${PROJECT_BINARY_DIR}/doc/Doxyfile
+        @ONLY
+    )
+    find_package(Doxygen REQUIRED)
+    file(
+        MAKE_DIRECTORY
+        ${CMAKE_BINARY_DIR}/bin/doc/${PROJECT_NAME}
+    )
+    add_custom_target(
+        ${PROJECT_NAME}_doc
+        COMMAND
+        Doxygen::doxygen
+        ${PROJECT_BINARY_DIR}/doc/Doxyfile
+        WORKING_DIRECTORY
+        ${PROJECT_SOURCE_DIR}
+    )
+endif()
