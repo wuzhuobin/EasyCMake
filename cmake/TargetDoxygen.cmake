@@ -1,3 +1,22 @@
+# @file	    TargetDoxygen.cmake
+# @brief	CMake script for finding doxygen and creating target to build documentation by 
+#           using doxygen. This script could configure the file "doxyfile.in" in 
+#           ${PROJECT_SOURCE_DIR}/doxygen/Doxyfile.in and use this configuration to 
+#           build documentaiton.
+#           
+# @author	WUZHUOBIN
+# @version	1.0
+# @since	Oct.24.2018
+# @date 	Oct.24.2018
+# @log
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#			Copyright (c) WUZHUOBIN 											    #
+#			All rights reserved.												    #
+#			See Copyright.txt													    #
+#			This software is distributed WITHOUT ANY WARRANTY; without even		    #
+#			the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR	    #
+#			PURPOSE.  See the above copyright notice for more information.		    #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 if(BUILD_DOCUMENTATION)
     configure_file(
         ${PROJECT_SOURCE_DIR}/doxygen/Doxyfile.in

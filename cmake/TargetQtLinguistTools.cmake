@@ -2,7 +2,10 @@
 # @brief	CMake script for finding QtLinguistTools and creating target for doing 
 #           Qt linguist related things. The target could generate and update qt's *.ts
 #           from the source code and/or generate qt's *.qm from the qt's *.ts files and 
-#           copy them to ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}.
+#           copy them to ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}. With checking 
+#           "Update Qt *.ts files", by providing empty *.ts file (empty *.txt file renamed to 
+#           *.ts ) or old *.ts file, the fields needed to be translated will be added to *.ts file. 
+#           
 # @author	WUZHUOBIN
 # @version	1.0
 # @since	Aug.23.2018

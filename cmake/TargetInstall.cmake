@@ -1,3 +1,23 @@
+# @file	    TargetInstall.cmake
+# @brief	CMake script for configurating cmake install target and 
+#			exporting cmake configuration, static libraries, shared libraries and header files.
+#			This is very useful in building cmake package, which could be re-used by 
+#			other cmake project. Other cmake project could re-use this package by "find_package()". 
+#           
+# @author	WUZHUOBIN
+# @version	1.0
+# @since	Oct.24.2018
+# @date 	Oct.24.2018
+# @log
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#			Copyright (c) WUZHUOBIN 											    #
+#			All rights reserved.												    #
+#			See Copyright.txt													    #
+#			This software is distributed WITHOUT ANY WARRANTY; without even		    #
+#			the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR	    #
+#			PURPOSE.  See the above copyright notice for more information.		    #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 # # # # # # # # # # # # # # # # # EXPORT # # # # # # # # # # # # # # # # # # # # # 
 # installation to be continue.
 # comment following for normal source project

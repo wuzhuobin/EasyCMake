@@ -1,9 +1,11 @@
-# @file	TemplateCMakeLists.txt
-# @brief	A template CMakeLists.txt which can automatically generate project
+# @file	    ProjectNameConfig.cmake.in
+# @brief    This file should be used with TargetConfigureFile.cmake	
+#
 # @author	WUZHUOBIN
-# @version	1.3.0
-# @since	Sep.19.2017
-# Should be used with TemplateCMakeLists.txt 
+# @version	1.0
+# @since	Oct.24.2018
+# @date 	Oct.24.2018
+# @log
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #			Copyright (c) WUZHUOBIN 											    #
 #			All rights reserved.												    #
