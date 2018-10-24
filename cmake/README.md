@@ -45,20 +45,23 @@ These modules would be mainly used for finding dependency and linking library. T
 
 ## Target Modules
 
-These moudles would be mainly used for creating new target whether it dependens on others. Thery are included in he CMakeLists.txt after the creation of the default CMake's targets.
+These moudles would be mainly used for creating a new target whether it dependens on others. Thery are included in he CMakeLists.txt after the creation of the default CMake's targets.
 
 1.  #### TargetConfigureFile.cmake
 
-    TBA
-2.  #### TargetInstall.cmake
+    This module is used for configurating cmake's configure file when doing exporting. This is usually needed with TargetInstall.cmake
+2.  #### TargetDoxygen.cmake
 
-    TBA
-3.  #### TargetOtherResource.cmake
+    This module is used for creating a new target using doxygen to build documentation while Doxyfile.in must be provided.
+3.  #### TargetInstall.cmake
 
-    This module is used for creating new target which it copys some necessary resources (such as some STLs, some example images..) to the folder where exectuables are placed. The PATH set in `PROJECT_RESOURCE` must be a folder path. So it can be copied recursively.
-4.  #### TargetQtLinguistTools.cmake
+    This module is used for configurating cmake install target. The install target could export cmake configuration, shared libraries, static libraries and header files, which is needed to re-use this cmake package.
+4.  #### TargetOtherResource.cmake
 
-    TBA
-5.  #### TargetQtTest.cmake
+    This module is used for creating a new target which it copys some necessary resources (such as some STLs, some example images..) to the folder where exectuables are placed. The PATH set in `PROJECT_RESOURCE` must be a folder path. So it can be copied recursively.
+5.  #### TargetQtLinguistTools.cmake
 
-    This module is used for creating new target about doing qtest and ctest. It will scan through the path `${PROJECT_SOURCE_DIR>/Testing/*.c*` and create exectuable for each file. Each executable will be added to ctest as well. Each *.c* file is suggested to written in qtest format but it is not compulsory. Since qtest need qobject, this target will append Qt5Core dependency.
+    This module is used for creating a new target which handles qt's *.ts files (Qt translation). This target will try to find QtLinguistTools. The module could generate correct *.qm file for the exectuable and copy it to the executable path.
+6.  #### TargetQtTest.cmake
+
+    This module is used for creating a new target about doing qtest and ctest. It will scan through the path `${PROJECT_SOURCE_DIR>/Testing/*.c*` and create exectuable for each file. Each executable will be added to ctest as well. Each *.c* file is suggested to written in qtest format but it is not compulsory. Since qtest need qobject, this target will append Qt5Core dependency.
