@@ -3,10 +3,13 @@
 #			be provided. This module is usually needed with TargetInstall.cmake  
 #
 # @author	WUZHUOBIN
-# @version	1.0
+# @version	1.1
 # @since	Oct.24.2018
-# @date 	Oct.24.2018
+# @date 	Nov.28.2018
 # @log
+# Nov.28.2018:
+# Ubuntu cannot create ${CMAKE_BINARY_DIR}/lib/cmake correctly. Adding creating 
+# directory command.
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #			Copyright (c) WUZHUOBIN 											    #
 #			All rights reserved.												    #
@@ -29,6 +32,10 @@ foreach(ONE ${PROJECT_FIND_CMAKE})
 		@ONLY
 	)
 endforeach()
+file(
+	MAKE_DIRECTORY
+	${CMAKE_BINARY_DIR}/lib/cmake
+)
 configure_file(
 	${PROJECT_CONFIGURE_CMAKE}
 	${CMAKE_BINARY_DIR}/lib/cmake/${PROJECT_NAME}Config.cmake
